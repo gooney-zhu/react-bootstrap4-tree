@@ -1,0 +1,47 @@
+{
+    "name": "react-bootstrap4-tree",
+    "version": "0.0.1",
+    "description": "bootstrap4 style tree for react",
+    "main": "dist/bundle.js",
+    "scripts": {
+        "build": "webpack --env.NODE_ENV=production",
+        "start": "webpack-dev-server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/gooney-zhu/react-bootstrap4-tree.git"
+    },
+    "keywords": [
+        "bootstrap4",
+        "tree",
+        "react"
+    ],
+    "author": "Gooney Zhu",
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "bugs": {
+        "url": "https://github.com/gooney-zhu/react-bootstrap4-tree/issues",
+        "email" : "gooney-samzhu@hotmail.com"
+    },
+    "homepage": "https://github.com/gooney-zhu/react-bootstrap4-tree#readme",
+    "dependencies": {
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.5.0",
+        "@babel/plugin-proposal-class-properties": "^7.5.0",
+        "@babel/preset-env": "^7.5.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.6",
+        "css-loader": "^3.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.35.2",
+        "webpack-cli": "^3.3.5",
+        "webpack-dev-server": "^3.7.2",
+        "webpack-node-externals": "^1.7.2"
+    }
+}
