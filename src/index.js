@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from './App'
+import TreeView from './TreeView'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<TreeView />, document.getElementById('root'));
