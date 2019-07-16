@@ -35,7 +35,7 @@ class TreeViewSubNode extends React.Component {
             <span>
                 <li className="list-group-item" style={{color: '#428BCA', cursor: 'pointer', border: 'none'}}>
                     <span onClick={this.handleClick}>{this.state.haveChild ? this.state.expand ? <MinusIcon className="svg-icon" /> : <PlusIcon className="svg-icon" /> : ''}</span>
-                    <span style={{width: '1rem', height: '1rem', marginLeft: '10px', marginRight: '5px', whiteSpace: 'nowrap'}} onClick={this.handleClick}>
+                    <span style={{width: '1rem', height: '1rem', marginLeft: '10px', marginRight: '5px', whiteSpace: 'nowrap', userSelect: 'none'}} onClick={this.handleClick}>
                         {this.state.title}
                     </span>
                 </li>
