@@ -1,7 +1,7 @@
 import React from 'react'
 import './TreeView.css'
 import { MinusIcon, PlusIcon } from 'react-open-iconic-svg';
-import { isUndefined, isNull, isArray } from 'util';
+import { isUndefined, isNull, isArray, isFunction } from 'util';
 import TreeViewNode from './TreeViewNode'
 
 class TreeViewSubNode extends React.Component {
@@ -25,9 +25,16 @@ class TreeViewSubNode extends React.Component {
     }
 
     handleClick() {
+        let expand = this.state.haveChild && !this.state.expand;
         this.setState({
-            expand: !this.state.expand
-        })
+            expand: expand
+        });
+        if (!isUndefined(this.props.onClick) && isFunction(this.props.onClick)) {
+            this.props.onClick({
+                title: this.state.title,
+                expand: expand
+            });
+        }
     }
 
     render() {
@@ -35,11 +42,11 @@ class TreeViewSubNode extends React.Component {
             <span style={{marginLeft: '10px'}}>
                 <li className="list-group-item" style={this.props.treeNodeCss}>
                     <span onClick={this.handleClick}>{this.state.haveChild ? this.state.expand ? <MinusIcon className="svg-icon" /> : <PlusIcon className="svg-icon" /> : ''}</span>
-                    <span style={{width: '1rem', height: '1rem', marginLeft: '10px', marginRight: '5px', whiteSpace: 'nowrap', userSelect: 'none'}} onClick={this.handleClick}>
+                    <span style={this.props.treeTextCss} onClick={this.handleClick}>
                         {this.state.title}
                     </span>
                 </li>
-                {this.state.haveChild && this.state.expand ? <TreeViewNode data={this.props.data.nodes} treeNodeCss={this.props.treeNodeCss} /> : ''}
+                {this.state.haveChild && this.state.expand ? <TreeViewNode data={this.props.data.nodes} treeNodeCss={this.props.treeNodeCss} treeTextCss={this.props.treeTextCss} onClick={this.props.onClick}/> : ''}
             </span>
         )
     }
