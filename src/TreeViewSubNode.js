@@ -33,13 +33,13 @@ class TreeViewSubNode extends React.Component {
     render() {
         return(
             <span style={{marginLeft: '10px'}}>
-                <li className="list-group-item" style={{color: '#428BCA', cursor: 'pointer', border: 'none', padding: '0.25rem 0.5rem'}}>
+                <li className="list-group-item" style={this.props.treeNodeCss}>
                     <span onClick={this.handleClick}>{this.state.haveChild ? this.state.expand ? <MinusIcon className="svg-icon" /> : <PlusIcon className="svg-icon" /> : ''}</span>
                     <span style={{width: '1rem', height: '1rem', marginLeft: '10px', marginRight: '5px', whiteSpace: 'nowrap', userSelect: 'none'}} onClick={this.handleClick}>
                         {this.state.title}
                     </span>
                 </li>
-                {this.state.haveChild && this.state.expand ? <TreeViewNode data={this.props.data.nodes}/> : ''}
+                {this.state.haveChild && this.state.expand ? <TreeViewNode data={this.props.data.nodes} treeNodeCss={this.props.treeNodeCss} /> : ''}
             </span>
         )
     }

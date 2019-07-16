@@ -20,7 +20,7 @@ class TreeViewNode extends React.Component {
     render() {
         let subNodes = [];
         for (let node of this.props.data) {
-            subNodes.push(<TreeViewSubNode key={Math.random()} data={node} />);
+            subNodes.push(<TreeViewSubNode key={Math.random()} data={node} treeNodeCss={this.props.treeNodeCss} />);
         }
         return(
             <ul className="list-group">
