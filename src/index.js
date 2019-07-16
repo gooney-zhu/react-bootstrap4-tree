@@ -2,4 +2,43 @@ import React from "react";
 import ReactDOM from "react-dom";
 import TreeView from './TreeView'
 
-ReactDOM.render(<TreeView />, document.getElementById('root'));
+let data = [
+    {
+        title: 'a1',
+        nodes: [
+            {
+                title: 'a1-a1',
+                nodes: []
+            }
+        ]
+    },
+    {
+        title: 'a2',
+        nodes: [
+            {
+                title: 'a2-a1',
+                nodes: [
+                    {
+                        title: 'a2-a1-a1'
+                    },
+                    {
+                        title: 'a2-a1-a2'
+                    }
+                ]
+            }
+        ]
+    }, 
+    {
+        title: 'a3',
+        nodes: [
+            {
+                title: 'a3-a1'
+            },
+            {
+                title: 'a3-a2'
+            }
+        ]
+    },
+];
+
+ReactDOM.render(<TreeView data={data} />, document.getElementById('root'));
