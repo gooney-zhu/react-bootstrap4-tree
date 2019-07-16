@@ -23,7 +23,7 @@ class TreeViewNode extends React.Component {
             subNodes.push(<TreeViewSubNode key={Math.random()} data={node} />);
         }
         return(
-            <ul>
+            <ul className="list-group">
                 {subNodes}
             </ul>
         )

@@ -85,4 +85,4 @@ let data1 = [
     }
 ];
 
-ReactDOM.render(<TreeView data={data1} />, document.getElementById('root'));
+ReactDOM.render(<TreeView data={data} title='MyTree' />, document.getElementById('root'));
