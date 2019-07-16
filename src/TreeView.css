@@ -1,3 +1,6 @@
+.treeview {
+    overflow: auto;
+}
 .svg-icon path {
     fill: #428BCA;
 }

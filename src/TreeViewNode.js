@@ -1,7 +1,5 @@
 import React from 'react'
 import './TreeView.css'
-import 'bootstrap/dist/css/bootstrap.css'
-import { MinusIcon, PlusIcon } from 'react-open-iconic-svg';
 import TreeViewSubNode from './TreeViewSubNode'
 
 class TreeViewNode extends React.Component {
