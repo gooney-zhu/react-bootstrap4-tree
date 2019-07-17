@@ -90,7 +90,5 @@ let aaa = function(value) {
 }
 
 ReactDOM.render(
-    <TreeView data={data} title='MyTree' 
-        treeNodeCss={{color: '#428BCA', cursor: 'pointer', border: 'none', padding: '0.25rem 0.5rem'}} 
-        onClick={aaa}/>, 
+    <TreeView data={data} onClick={aaa}/>, 
     document.getElementById('root'));
