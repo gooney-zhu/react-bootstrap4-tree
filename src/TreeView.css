@@ -1,6 +1,50 @@
+.treeview .list-group-item {
+	cursor: pointer;
+}
+
+.treeview span {
+	width: 1rem;
+	height: 1rem;
+}
+
+.treeview span.indent {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.treeview span.icon {
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
 .treeview {
     overflow: auto;
 }
-.svg-icon path {
+
+.icon path {
     fill: #428BCA;
+}
+
+.minus::before {
+    content: "\2212";
+    color: #428BCA;
+    display: inline-block;
+}
+
+.plus::before {
+    content: "\002B";
+    color: #428BCA;
+    display: inline-block;
+}
+
+.white::before {
+    content: "\2B1C";
+    color: #428BCA;
+    display: inline-block;
+}
+
+.black::before {
+    content: "\2B1B";
+    color: #428BCA;
+    display: inline-block;
 }
