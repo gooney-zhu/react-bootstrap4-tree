@@ -1,6 +1,6 @@
 # React Bootstrap4 Tree View
 
-![Bootstrap Tree View Default](https://github.com/gooney-zhu/react-bootstrap4-tree/blob/master/screenshot/default.PNG)
+![Bootstrap Tree View Default](https://raw.githubusercontent.com/gooney-zhu/react-bootstrap4-tree/master/screenshot/default.PNG)
 
 ## Dependencies
 
