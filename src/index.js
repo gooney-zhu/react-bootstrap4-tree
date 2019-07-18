@@ -4,7 +4,7 @@ import TreeView from './TreeView'
 
 let defaultNode = 
 {
-    text: 'a1',
+    text: '',
     color: "#428BCA",
     backgroundColor: "#FFFFFF",
     border: true,
