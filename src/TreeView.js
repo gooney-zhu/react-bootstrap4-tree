@@ -1,14 +1,36 @@
 import React from 'react'
 import './TreeView.css'
 import 'bootstrap/dist/css/bootstrap.css'
-import TreeNodeContainer from './TreeNodeContainer'
+import TreeNodeList from './TreeNodeList'
+import { parseDefault, organizeTreeData } from './Util'
+import { isUndefined, isNull, isArray } from 'util';
 
 class TreeView extends React.Component {
+
+    constructor(props) {
+        super(props);
+        
+        let data = this.props.data;
+        let color = parseDefault(this.props.color, '#428BCA');
+        let backgroundColor = parseDefault(this.props.backgroundColor, '#FFFFFF');
+        let isShow = !isUndefined(data) && !isNull(data) && isArray(data) && data.length > 0;
+        let newData = [];
+        if (isShow) {
+            //organize the tree data
+            organizeTreeData(data, newData, 0, color, backgroundColor);
+        }
+
+        this.state = {
+            isShow: isShow,
+            data: newData
+        }
+    }
+
     render() {
         return(
             <div id='treeview' className='treeview'>
                 <ul className='list-group'>
-                    <TreeNodeContainer data={this.props.data} level={0}/>
+                    {this.state.isShow ? <TreeNodeList data={this.state.data} treeData={this.state.data} level={0} onExpand={this.props.onExpand} onSelect={this.props.onSelect} /> : ''}
                 </ul>
             </div>
         )

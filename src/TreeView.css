@@ -9,41 +9,15 @@
 
 .treeview span.icon {
 	margin-left: 10px;
+    margin-right: 5px;
+    user-select: none;
+}
+
+.treeview span.empty {
+	margin-left: 20.94px;
 	margin-right: 5px;
 }
 
 .icon path {
     fill: #428BCA;
-}
-
-.minus::before {
-    content: "\2212";
-    color: #428BCA;
-    display: inline-block;
-}
-
-.plus::before {
-    content: "\002B";
-    color: #428BCA;
-    display: inline-block;
-}
-
-.white::before {
-    content: "\2B1C";
-    color: #428BCA;
-    display: inline-block;
-}
-
-.black::before {
-    content: "\2B1B";
-    color: #428BCA;
-    display: inline-block;
-}
-
-.nested {
-    display: none;
-}
-  
-.active {
-    display: block;
 }
