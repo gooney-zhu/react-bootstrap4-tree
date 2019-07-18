@@ -24,6 +24,7 @@ Include the correct styles, it's mainly just bootstrap but we add a few tweaks a
 ```html
 <!-- Required CSS -->
 <link href="path/to/bootstrap.css" rel="stylesheet">
+```
 
 Then, a basic initialization would look like.
 
