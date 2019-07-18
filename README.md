@@ -221,6 +221,15 @@ Boolean.  Default: true
 
 Whether or not to display a select icon.
 
+#### onExpand
+Function.  Default: Undefined
+
+When the tree node expand or collapse, this function will be call. It will pass the tree data as parameter.
+
+#### onSelect
+Function.  Default: Undefined
+
+When the tree node is selected or unselected, this function will be call. It will pass the tree data as parameter.
 
 ## Copyright and Licensing
 MIT License
