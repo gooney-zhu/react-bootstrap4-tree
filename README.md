@@ -144,3 +144,79 @@ If you want to do more, here's the full node specification
   ]
 }
 ```
+
+### Node Properties
+
+The following properties are defined to allow node level overrides, such as node specific colors and border.
+
+#### text
+`String` `Mandatory`
+
+The text value displayed for a given tree node.
+
+
+#### color
+`String` `Optional`
+
+The foreground color used on a given node, overrides global color option.
+
+#### backgroundColor
+`String` `Optional`
+
+The background color used on a given node, overrides global color option.
+
+#### state
+`Object` `Optional`
+
+Describes a node's initial state.
+
+#### state.expanded
+`Boolean` `Default: false`
+
+Whether or not a node is expanded i.e. open.  Takes precedence over global option levels.
+
+#### state.selected
+`Boolean` `Default: false`
+
+Whether or not a node is selected.
+
+## Options
+
+Options allow you to customise the treeview's default appearance and behaviour.  They are passed to the react component as properties on initialization.
+
+```javascript
+// Example: initializing the treeview
+// with a background color of green
+React.render(
+	<TreeView data={data}
+				backgroundColor="green" />,
+	document.getElementById('treeview')
+);
+```
+
+The following is a list of all available options.
+
+#### data
+Array of Objects.  No default, expects data
+
+This is the core data to be displayed by the tree view.
+
+#### color
+String, [any legal color value](http://www.w3schools.com/cssref/css_colors_legal.asp).  Default: inherits from Bootstrap.css.
+
+Sets the default foreground color used by all nodes, except when overridden on a per node basis in data.
+
+#### backgroundColor
+String, [any legal color value](http://www.w3schools.com/cssref/css_colors_legal.asp).  Default: inherits from Bootstrap.css.
+
+Sets the default background color used by all nodes, except when overridden on a per node basis in data.
+
+#### showBorder
+Boolean.  Default: true
+
+Whether or not to display a border around nodes.
+
+#### showSelect
+Boolean.  Default: true
+
+Whether or not to display a select icon.
