@@ -7,6 +7,7 @@ let defaultNode =
     text: 'a1',
     color: "#428BCA",
     backgroundColor: "#FFFFFF",
+    border: true,
     state: {
         expanded: false,
         selected: false

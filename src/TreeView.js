@@ -2,7 +2,7 @@ import React from 'react'
 import './TreeView.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import TreeNodeList from './TreeNodeList'
-import { parseDefault, organizeTreeData } from './Util'
+import { parseDefault, organizeTreeData, parseBoolean } from './Util'
 import { isUndefined, isNull, isArray } from 'util';
 
 class TreeView extends React.Component {
@@ -13,11 +13,12 @@ class TreeView extends React.Component {
         let data = this.props.data;
         let color = parseDefault(this.props.color, '#428BCA');
         let backgroundColor = parseDefault(this.props.backgroundColor, '#FFFFFF');
+        let border = parseBoolean(this.props.border, true);
         let isShow = !isUndefined(data) && !isNull(data) && isArray(data) && data.length > 0;
         let newData = [];
         if (isShow) {
             //organize the tree data
-            organizeTreeData(data, newData, 0, color, backgroundColor);
+            organizeTreeData(data, newData, 0, color, backgroundColor, border);
         }
 
         this.state = {
