@@ -220,3 +220,7 @@ Whether or not to display a border around nodes.
 Boolean.  Default: true
 
 Whether or not to display a select icon.
+
+
+## Copyright and Licensing
+MIT
