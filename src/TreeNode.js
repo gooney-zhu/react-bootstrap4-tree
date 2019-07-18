@@ -50,7 +50,7 @@ class TreeNode extends React.Component {
         }
 
         let colorCssStyle = {color: this.props.data.color};
-        let listItemCssStyle = this.props.data.border ? {backgroundColor: this.props.data.backgroundColor} : {backgroundColor: this.props.data.backgroundColor, border: 'none'};
+        let listItemCssStyle = this.props.data.showBorder ? {backgroundColor: this.props.data.backgroundColor} : {backgroundColor: this.props.data.backgroundColor, border: 'none'};
         let haveChild = nodes.length > 0;
         let iconExpanded = expanded ? <span className='icon' style={colorCssStyle}>&#x2212;</span> : <span className='icon' style={colorCssStyle}>&#x002B;</span>;
         let iconSelected = selected ? <span className='icon' style={colorCssStyle} onClick={this.handleSelect}>&#x2B1B;</span> : <span className='icon' style={colorCssStyle} onClick={this.handleSelect}>&#x2B1C;</span>;
@@ -60,7 +60,7 @@ class TreeNode extends React.Component {
                 <li style={listItemCssStyle} key={Math.random()} className='list-group-item' onClick={this.handleExpand}>
                     {indent}
                     {haveChild ? iconExpanded : <span className="empty"></span>}
-                    {iconSelected}
+                    {this.props.data.showSelect ? iconSelected : ''}
                     <span style={colorCssStyle}>{text}</span>
                 </li>
                 {expanded ? <TreeNodeList key={Math.random()} data={nodes} treeData={this.props.treeData} level={level + 1} onExpand={this.props.onExpand} onSelect={this.props.onSelect} /> : <span></span>}

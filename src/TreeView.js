@@ -13,12 +13,13 @@ class TreeView extends React.Component {
         let data = this.props.data;
         let color = parseDefault(this.props.color, '#428BCA');
         let backgroundColor = parseDefault(this.props.backgroundColor, '#FFFFFF');
-        let border = parseBoolean(this.props.border, true);
+        let showBorder = parseBoolean(this.props.showBorder, true);
+        let showSelect = parseBoolean(this.props.showSelect, true);
         let isShow = !isUndefined(data) && !isNull(data) && isArray(data) && data.length > 0;
         let newData = [];
         if (isShow) {
             //organize the tree data
-            organizeTreeData(data, newData, 0, color, backgroundColor, border);
+            organizeTreeData(data, newData, 0, color, backgroundColor, showBorder, showSelect);
         }
 
         this.state = {

@@ -79,21 +79,22 @@ export const parseBoolean = (value, defaultValue) => {
  * @param {string} defaultColor 
  * @param {string} defaultBackgroundColor 
  */
-export const organizeTreeData = (data, newData, idIndex, defaultColor, defaultBackgroundColor, defaultBorder) => {
+export const organizeTreeData = (data, newData, idIndex, defaultColor, defaultBackgroundColor, defaultBorder, defaultSelect) => {
     let currentIndex = idIndex;
     idIndex = idIndex + data.length;
     for (let node of data) {
         let nodes = parseArray(node.nodes);
         let newNodes = [];
         if (nodes.length > 0) {
-            idIndex = organizeTreeData(nodes, newNodes, idIndex, defaultColor, defaultBackgroundColor, defaultBorder);
+            idIndex = organizeTreeData(nodes, newNodes, idIndex, defaultColor, defaultBackgroundColor, defaultBorder, defaultSelect);
         }
         let newNode = {
             id: ++currentIndex,
             text: parseDefault(node.text, ''),
             color: parseDefault(node.color, defaultColor),
             backgroundColor: parseDefault(node.backgroundColor, defaultBackgroundColor),
-            border: parseBoolean(node.border, defaultBorder),
+            showBorder: parseBoolean(node.showBorder, defaultBorder),
+            showSelect: parseBoolean(node.showSelect, defaultSelect),
             state: parseDefaultState(node.state),
             nodes: newNodes
         }

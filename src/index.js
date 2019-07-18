@@ -7,7 +7,8 @@ let defaultNode =
     text: '',
     color: "#428BCA",
     backgroundColor: "#FFFFFF",
-    border: true,
+    showBorder: true,
+    showSelect: true,
     state: {
         expanded: false,
         selected: false
@@ -80,5 +81,5 @@ let bbb = function(value) {
 }
 
 ReactDOM.render(
-    <div style={{width: '500px', margin: '10px'}}><TreeView data={data} onExpand={aaa} onSelect={bbb}/></div>, 
+    <TreeView data={data} onExpand={aaa} onSelect={bbb}/>, 
     document.getElementById('root'));
