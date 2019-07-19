@@ -1,6 +1,5 @@
 import React from 'react'
 import './TreeView.css'
-import 'bootstrap/dist/css/bootstrap.css'
 import TreeNodeList from './TreeNodeList'
 import { parseDefault, organizeTreeData, parseBoolean } from './Util'
 import { isUndefined, isNull, isArray } from 'util';

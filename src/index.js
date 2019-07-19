@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import TreeView from './TreeView'
+import 'bootstrap/dist/css/bootstrap.css'
 
 let defaultNode = 
 {

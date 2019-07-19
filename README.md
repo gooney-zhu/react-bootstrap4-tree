@@ -21,9 +21,28 @@ $ npm install react-bootstrap4-tree
 
 Include the correct styles, it's mainly just bootstrap but we add a few tweaks as well.
 
-Npm: 
+```html
+<!-- Required CSS -->
+<link href="path/to/bootstrap.css" rel="stylesheet">
+```
+
+OR
+
 ```javascript
-$ npm install bootstrap
+npm install bootstrap
+```
+In index.js:
+```javascript
+import 'bootstrap/dist/css/bootstrap.css'
+```
+
+Then, a basic initialization would look like.
+
+```javascript
+React.render(
+	<TreeView data={data} />,
+	document.getElementById('treeview')
+);
 ```
 
 ## Data Structure
