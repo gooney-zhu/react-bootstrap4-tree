@@ -21,45 +21,9 @@ $ npm install react-bootstrap4-tree
 
 Include the correct styles, it's mainly just bootstrap but we add a few tweaks as well.
 
-```html
-<!-- Required CSS -->
-<link href="path/to/bootstrap.css" rel="stylesheet">
-```
-
-Then, a basic initialization would look like.
-
+Npm: 
 ```javascript
-ReactDOM.render(
-  <TreeView data={data} />, 
-  document.getElementById('root'));
-```
-
-### Example
-
-Putting it all together a minimal implementation might look like this.
-
-```html
-<html>
-  <head>
-    <title>React + Bootstrap4 Tree View</title>
-    <link href="path/to/bootstrap.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-      <h1>React + Bootstrap Tree View</h1>
-      <br/>
-      <div class="row">
-        <div id="root"></div>
-      </div>
-    </div>
-    <script type="text/jsx">
-    	React.render(
-				<TreeView data={data} />,
-				document.getElementById('root')
-			);
-    </script>
-  </body>
-</html>
+$ npm install bootstrap
 ```
 
 ## Data Structure
@@ -211,8 +175,20 @@ Options allow you to customise the treeview's default appearance and behaviour. 
 ```javascript
 // Example: initializing the treeview
 // with a background color of green
+// with onExpand and onSelect function
+
+let onExpand = function(nodeData, treeData) {
+    console.log(nodeData);
+    console.log(treeData);
+}
+
+let onSelect = function(nodeData, treeData) {
+    console.log(nodeData);
+    console.log(treeData);
+}
+
 React.render(
-	<TreeView data={data} backgroundColor="green" />,
+	<TreeView data={data} backgroundColor="green" onExpand={onExpand} onSelect={onSelect} />,
 	document.getElementById('treeview')
 );
 ```
