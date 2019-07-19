@@ -18,13 +18,21 @@ class TreeNode extends React.Component {
     }
 
     handleExpand(event) {
+        let expanded = !this.state.expanded;
+        if (this.props.data.nodes.length == 0) {
+            expanded = false;
+        }
         this.setState({
-            expanded: !this.state.expanded
+            expanded: expanded
         });
-        this.props.data.state.expanded = !this.state.expanded;
+        this.props.data.state.expanded = expanded;
         if (isFunction(this.props.onExpand)) {
             this.props.onExpand({
                 text: this.props.data.text,
+                state: {
+                    expanded: expanded,
+                    selected: this.props.data.state.selected
+                },
                 customData: this.props.data.customData
             }, cloneTreeData(this.props.treeData));
         }
@@ -39,6 +47,10 @@ class TreeNode extends React.Component {
         if (isFunction(this.props.onSelect)) {
             this.props.onExpand({
                 text: this.props.data.text,
+                state: {
+                    expanded: this.props.data.state.expanded,
+                    selected: !this.state.selected
+                },
                 customData: this.props.data.customData
             }, cloneTreeData(this.props.treeData));
         }

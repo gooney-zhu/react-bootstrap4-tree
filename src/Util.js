@@ -133,8 +133,15 @@ const cloneSubTreeData = (data, newData) => {
             cloneSubTreeData(nodes, newNodes);
         }
         let newNode = {
-            text: parseDefault(node.text, ''),
-            state: parseDefaultState(node.state),
+            text: node.text,
+            color: node.color,
+            backgroundColor: node.backgroundColor,
+            showBorder: node.showBorder,
+            showSelect: node.showSelect,
+            state: {
+                expanded: node.state.expanded,
+                selected: node.state.selected
+            },
             customData: parseCustomData(node.customData),
             nodes: newNodes
         }
