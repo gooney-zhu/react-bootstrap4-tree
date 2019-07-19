@@ -249,5 +249,5 @@ Function.  Default: Undefined
 
 When the tree node is selected or unselected, this function will be call. It will pass the current node data and the whole tree data as parameter.
 
-## Copyright and Licensing
-MIT License
+## License
+[MIT license](http://opensource.org/licenses/MIT).
