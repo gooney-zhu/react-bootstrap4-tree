@@ -73,6 +73,23 @@ export const parseBoolean = (value, defaultValue) => {
 }
 
 /**
+ * parse custom data
+ * @param {object} value 
+ */
+export const parseCustomData = (value) => {
+    if (isUndefined(value)) {
+        return {};
+    }
+    if (isNull(value)) {
+        return {};
+    }
+    if (isObject(value)) {
+        return value;
+    }
+    return {};
+}
+
+/**
  * organize tree data
  * @param {object} data 
  * @param {object} newData 
@@ -96,9 +113,50 @@ export const organizeTreeData = (data, newData, idIndex, defaultColor, defaultBa
             showBorder: parseBoolean(node.showBorder, defaultBorder),
             showSelect: parseBoolean(node.showSelect, defaultSelect),
             state: parseDefaultState(node.state),
+            customData: parseCustomData(node.customData),
             nodes: newNodes
         }
         newData.push(newNode);
     }
     return idIndex;
+}
+
+/**
+ * clone sub tree data
+ * @param {object} data 
+ */
+const cloneSubTreeData = (data, newData) => {
+    for (let node of data) {
+        let nodes = parseArray(node.nodes);
+        let newNodes = [];
+        if (nodes.length > 0) {
+            cloneSubTreeData(nodes, newNodes);
+        }
+        let newNode = {
+            text: parseDefault(node.text, ''),
+            state: parseDefaultState(node.state),
+            customData: parseCustomData(node.customData),
+            nodes: newNodes
+        }
+        newData.push(newNode);
+    }
+}
+
+/**
+ * clone tree data
+ * @param {object} data 
+ */
+export const cloneTreeData = (data) => {
+    let newData = [];
+    if (isUndefined(data)) {
+        return newData;
+    }
+    if (isNull(data)) {
+        return newData;
+    }
+    if (!isArray(data)) {
+        return newData;
+    }
+    cloneSubTreeData(data, newData);
+    return newData;
 }

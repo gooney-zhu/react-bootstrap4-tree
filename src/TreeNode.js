@@ -1,6 +1,7 @@
 import React from 'react'
 import TreeNodeList from './TreeNodeList'
 import { isFunction } from 'util';
+import { cloneTreeData } from './Util'
 
 class TreeNode extends React.Component {
 
@@ -22,7 +23,10 @@ class TreeNode extends React.Component {
         });
         this.props.data.state.expanded = !this.state.expanded;
         if (isFunction(this.props.onExpand)) {
-            this.props.onExpand(this.props.treeData);
+            this.props.onExpand({
+                text: this.props.data.text,
+                customData: this.props.data.customData
+            }, cloneTreeData(this.props.treeData));
         }
         event.stopPropagation();
     }
@@ -33,7 +37,10 @@ class TreeNode extends React.Component {
         });
         this.props.data.state.selected = !this.state.selected;
         if (isFunction(this.props.onSelect)) {
-            this.props.onSelect(this.props.treeData);
+            this.props.onExpand({
+                text: this.props.data.text,
+                customData: this.props.data.customData
+            }, cloneTreeData(this.props.treeData));
         }
         event.stopPropagation();
     }

@@ -13,6 +13,9 @@ let defaultNode =
         expanded: false,
         selected: false
     },
+    customData: {
+
+    },
     nodes: [
     ]
 }
@@ -20,18 +23,30 @@ let defaultNode =
 let data = [
     {
         text: 'a1',
+        customData: {
+            id: '1'
+        },
         nodes: [
             {
                 text: 'a1-a1',
+                customData: {
+                    id: '2'
+                },
                 nodes: []
             }
         ]
     },
     {
         text: 'a2',
+        customData: {
+            id: '3'
+        },
         nodes: [
             {
                 text: 'a2-a1',
+                customData: {
+                    id: '4'
+                },
                 nodes: [
                     {
                         text: 'a2-a1-a1'
@@ -45,9 +60,17 @@ let data = [
     }, 
     {
         text: 'a3',
+        customData: {
+            id: '7',
+            other: 'other'
+        },
         nodes: [
             {
                 text: 'a3-a1',
+                customData: {
+                    id: '9',
+                    another: 'another'
+                },
                 nodes: [
                     {
                         text: 'a2-a1-a1',
@@ -72,12 +95,14 @@ let data = [
     },
 ];
 
-let aaa = function(value) {
-    console.log(value);
+let aaa = function(node, treeData) {
+    console.log(node);
+    console.log(treeData);
 }
 
-let bbb = function(value) {
-    console.log(value);
+let bbb = function(node, treeData) {
+    console.log(node);
+    console.log(treeData);
 }
 
 ReactDOM.render(

@@ -5,7 +5,7 @@
 ## Dependencies
 
 The project has very few dependencies, but you will need the following.
-- [React v16.8.6](https://facebook.github.io/react/)
+- [React](https://facebook.github.io/react/)
 - [Bootstrap v4.3.1 (>= 4.0.0)](http://getbootstrap.com/)
 
 ## Getting Started
@@ -30,8 +30,8 @@ Then, a basic initialization would look like.
 
 ```javascript
 ReactDOM.render(
-    <TreeView data={data} />, 
-    document.getElementById('root'));
+  <TreeView data={data} />, 
+  document.getElementById('root'));
 ```
 
 ### Example
@@ -65,6 +65,7 @@ Putting it all together a minimal implementation might look like this.
 ## Data Structure
 
 In order to define the hierarchical structure needed for the tree it's necessary to provide a nested array of JavaScript objects.
+You can define your custom data in the tree data.
 
 Example
 
@@ -72,18 +73,30 @@ Example
 let data = [
     {
         text: 'a1',
+        customData: {
+            id: '1'
+        },
         nodes: [
             {
                 text: 'a1-a1',
+                customData: {
+                    id: '2'
+                },
                 nodes: []
             }
         ]
     },
     {
         text: 'a2',
+        customData: {
+            id: '3'
+        },
         nodes: [
             {
                 text: 'a2-a1',
+                customData: {
+                    id: '4'
+                },
                 nodes: [
                     {
                         text: 'a2-a1-a1'
@@ -97,9 +110,17 @@ let data = [
     }, 
     {
         text: 'a3',
+        customData: {
+            id: '7',
+            other: 'other'
+        },
         nodes: [
             {
                 text: 'a3-a1',
+                customData: {
+                    id: '9',
+                    another: 'another'
+                },
                 nodes: [
                     {
                         text: 'a2-a1-a1',
@@ -137,6 +158,9 @@ If you want to do more, here's the full node specification
   state: {
   	expanded: true,
   	selected: true
+  },
+  customData: {
+
   },
   nodes: [
     {},
@@ -188,8 +212,7 @@ Options allow you to customise the treeview's default appearance and behaviour. 
 // Example: initializing the treeview
 // with a background color of green
 React.render(
-	<TreeView data={data}
-				backgroundColor="green" />,
+	<TreeView data={data} backgroundColor="green" />,
 	document.getElementById('treeview')
 );
 ```
@@ -224,32 +247,12 @@ Whether or not to display a select icon.
 #### onExpand
 Function.  Default: Undefined
 
-When the tree node expand or collapse, this function will be call. It will pass the tree data as parameter.
+When the tree node expand or collapse, this function will be call. It will pass the current node data and the whole tree data as parameter.
 
 #### onSelect
 Function.  Default: Undefined
 
-When the tree node is selected or unselected, this function will be call. It will pass the tree data as parameter.
+When the tree node is selected or unselected, this function will be call. It will pass the current node data and the whole tree data as parameter.
 
 ## Copyright and Licensing
 MIT License
-
-Copyright (c) 2019 gooney-zhu
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
