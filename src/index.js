@@ -107,5 +107,5 @@ let bbb = function(node, treeData) {
 }
 
 ReactDOM.render(
-    <TreeView data={data} onExpand={aaa} onSelect={bbb}/>, 
+    <div style={{width: '500px', margin: '10px'}}><TreeView data={data} onExpand={aaa} onSelect={bbb}/></div>, 
     document.getElementById('root'));
