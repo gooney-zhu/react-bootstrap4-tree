@@ -69,13 +69,10 @@ class TreeNode extends React.Component {
             indent.push(<span key={Math.random()} className='indent'></span>);
         }
 
-        //let colorCssStyle = {color: this.props.data.color};
         let iconSize = 18;
         let listItemCssStyle = this.props.data.showBorder ? {backgroundColor: this.props.data.backgroundColor} : {backgroundColor: this.props.data.backgroundColor, border: 'none'};
         let haveChild = nodes.length > 0;
-        //let iconExpanded = expanded ? <span className='icon' style={colorCssStyle}>&#x2212;</span> : <span className='icon' style={colorCssStyle}>&#x002B;</span>;
         let iconExpanded = expanded ? <span className='icon'><Minus color={this.props.data.color} size={iconSize}/></span> : <span className='icon'><Plus color={this.props.data.color} size={iconSize}/></span>;
-        //let iconSelected = selected ? <span className='icon' style={colorCssStyle} onClick={this.handleSelect}>&#x2B1B;</span> : <span className='icon' style={colorCssStyle} onClick={this.handleSelect}>&#x2B1C;</span>;
         let iconSelected = selected ? <span className='icon' onClick={this.handleSelect}><XSquare color={this.props.data.color} size={iconSize}/></span> : <span className='icon' onClick={this.handleSelect}><Square color={this.props.data.color} size={iconSize}/></span>;
 
         return(
