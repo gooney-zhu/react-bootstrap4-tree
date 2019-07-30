@@ -46,7 +46,7 @@ class TreeNode extends React.Component {
         });
         this.props.data.state.selected = !this.state.selected;
         if (isFunction(this.props.onSelect)) {
-            this.props.onExpand({
+            this.props.onSelect({
                 text: this.props.data.text,
                 state: {
                     expanded: this.props.data.state.expanded,
