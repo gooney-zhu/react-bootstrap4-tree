@@ -77,7 +77,7 @@ class TreeNode extends React.Component {
 
         return(
             <span>
-                <li style={listItemCssStyle} key={Math.random()} className='list-group-item' onClick={this.handleExpand}>
+                <li style={listItemCssStyle} key={Math.random()} className='list-group-item tree-text' onClick={this.handleExpand}>
                     {indent}
                     {haveChild ? iconExpanded : <span className="empty"></span>}
                     {this.props.data.showSelect ? iconSelected : ''}

@@ -27,6 +27,7 @@ class TreeView extends React.Component {
             <div id='treeview' className='treeview'>
                 <ul className='list-group'>
                     {this.state.isShow ? <TreeNodeList data={this.state.data} treeData={this.state.data} level={0} onExpand={this.props.onExpand} onSelect={this.props.onSelect} /> : ''}
+                    <span className="tree-node"></span>
                 </ul>
             </div>
         )
