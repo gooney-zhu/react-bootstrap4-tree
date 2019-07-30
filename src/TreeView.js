@@ -6,9 +6,7 @@ import { isUndefined, isNull, isArray } from 'util';
 
 class TreeView extends React.Component {
 
-    constructor(props) {
-        super(props);
-        
+    render() {
         let data = this.props.data;
         let color = parseDefault(this.props.color, '#428BCA');
         let backgroundColor = parseDefault(this.props.backgroundColor, '#FFFFFF');
@@ -25,9 +23,6 @@ class TreeView extends React.Component {
             isShow: isShow,
             data: newData
         }
-    }
-
-    render() {
         return(
             <div id='treeview' className='treeview'>
                 <ul className='list-group'>
